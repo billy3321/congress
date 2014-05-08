@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508133610) do
+ActiveRecord::Schema.define(version: 20140508134402) do
 
   create_table "legislators", force: true do |t|
     t.string   "name"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20140508133610) do
     t.string   "constituency"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "legislators_videos", force: true do |t|
+    t.integer "legislator_id"
+    t.integer "video_id"
   end
 
   create_table "parties", force: true do |t|
