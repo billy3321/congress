@@ -15,7 +15,7 @@
     <% @admin_legislators.each do |admin_legislator| %>
       <tr>
         <td><%= admin_legislator.name %></td>
-        <td><%= admin_legislator.party_id %></td>
+        <td><%= admin_legislator.party.name %></td>
         <td><%= admin_legislator.description %></td>
         <td><%= admin_legislator.constituency %></td>
         <td><%= link_to 'Show', [:admin, admin_legislator] %></td>
