@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508125852) do
+ActiveRecord::Schema.define(version: 20140508133610) do
 
   create_table "legislators", force: true do |t|
     t.string   "name"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20140508125852) do
   create_table "parties", force: true do |t|
     t.string   "name"
     t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
