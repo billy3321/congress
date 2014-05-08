@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_legislator.name %>
+</p>
+
+<p>
+  <strong>Party:</strong>
+  <%= @admin_legislator.party_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_legislator.description %>
+</p>
+
+<p>
+  <strong>Constituency:</strong>
+  <%= @admin_legislator.constituency %>
+</p>
+
+<%= link_to 'Edit', edit_admin_legislator_path(@admin_legislator) %> |
+<%= link_to 'Back', admin_legislators_path %>
