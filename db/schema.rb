@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20140509025725) do
     t.datetime "updated_at"
   end
 
+  create_table "entries_legislators", force: true do |t|
+    t.integer "entry_id"
+    t.integer "legislator_id"
+  end
+
   create_table "legislators", force: true do |t|
     t.string   "name"
     t.integer  "party_id"
@@ -35,11 +40,6 @@ ActiveRecord::Schema.define(version: 20140509025725) do
     t.string   "constituency"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "legislators_entries", force: true do |t|
-    t.integer "legislator_id"
-    t.integer "entry_id"
   end
 
   create_table "legislators_videos", force: true do |t|
