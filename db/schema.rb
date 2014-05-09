@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508134402) do
+ActiveRecord::Schema.define(version: 20140509025725) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entries", force: true do |t|
+    t.string   "title"
+    t.integer  "category_id"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "legislators", force: true do |t|
     t.string   "name"
@@ -20,6 +35,11 @@ ActiveRecord::Schema.define(version: 20140508134402) do
     t.string   "constituency"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "legislators_entries", force: true do |t|
+    t.integer "legislator_id"
+    t.integer "entry_id"
   end
 
   create_table "legislators_videos", force: true do |t|
