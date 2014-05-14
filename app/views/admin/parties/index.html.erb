@@ -1,4 +1,4 @@
-<h1>Listing admin_parties</h1>
+<h1>Listing parties</h1>
 
 <table>
   <thead>
@@ -10,13 +10,13 @@
   </thead>
 
   <tbody>
-    <% @admin_parties.each do |admin_party| %>
+    <% @parties.each do |party| %>
       <tr>
-        <td><%= admin_party.name %></td>
-        <td><%= admin_party.image %></td>
-        <td><%= link_to 'Show', [:admin, admin_party] %></td>
-        <td><%= link_to 'Edit', edit_admin_party_path(admin_party) %></td>
-        <td><%= link_to 'Destroy', [:admin, admin_party], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= party.name %></td>
+        <td><%= party.image %></td>
+        <td><%= link_to 'Show', [:admin, party] %></td>
+        <td><%= link_to 'Edit', edit_admin_party_path(party) %></td>
+        <td><%= link_to 'Destroy', [:admin, party], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

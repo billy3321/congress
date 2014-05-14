@@ -1,4 +1,4 @@
-json.array!(@admin_entries) do |admin_entry|
-  json.extract! admin_entry, :id, :title, :category_id, :description, :url
-  json.url admin_entry_url(admin_entry, format: :json)
+json.array!(@entries) do |entry|
+  json.extract! entry, :id, :title, :category_id, :description, :url
+  json.url admin_entry_url(entry, format: :json)
 end

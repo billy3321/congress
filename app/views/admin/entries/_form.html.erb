@@ -1,10 +1,10 @@
-<%= form_for([:admin, @admin_entry]) do |f| %>
-  <% if @admin_entry.errors.any? %>
+<%= form_for([:admin, @entry]) do |f| %>
+  <% if @entry.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_entry.errors.count, "error") %> prohibited this admin_entry from being saved:</h2>
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
 
       <ul>
-      <% @admin_entry.errors.full_messages.each do |message| %>
+      <% @entry.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.number_field :category_id, Category.all.collect { |c| [ c.name, c.id] }, include_blank: false, prompt: "請選類別" %>
+    <%= f.select :category_id, Category.all.collect { |c| [ c.name, c.id] }, include_blank: false, prompt: "請選類別" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::PartiesControllerTest < ActionController::TestCase
   setup do
-    @admin_party = admin_parties(:one)
+    @party = admin_parties(:one)
   end
 
   test "should get index" do
@@ -18,30 +18,30 @@ class Admin::PartiesControllerTest < ActionController::TestCase
 
   test "should create admin_party" do
     assert_difference('Admin::Party.count') do
-      post :create, admin_party: { image: @admin_party.image, name: @admin_party.name }
+      post :create, admin_party: { image: @party.image, name: @party.name }
     end
 
     assert_redirected_to admin_party_path(assigns(:admin_party))
   end
 
   test "should show admin_party" do
-    get :show, id: @admin_party
+    get :show, id: @party
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @admin_party
+    get :edit, id: @party
     assert_response :success
   end
 
   test "should update admin_party" do
-    patch :update, id: @admin_party, admin_party: { image: @admin_party.image, name: @admin_party.name }
+    patch :update, id: @party, admin_party: { image: @party.image, name: @party.name }
     assert_redirected_to admin_party_path(assigns(:admin_party))
   end
 
   test "should destroy admin_party" do
     assert_difference('Admin::Party.count', -1) do
-      delete :destroy, id: @admin_party
+      delete :destroy, id: @party
     end
 
     assert_redirected_to admin_parties_path

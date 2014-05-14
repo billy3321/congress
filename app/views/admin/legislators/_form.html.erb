@@ -1,10 +1,10 @@
-<%= form_for([:admin, @admin_legislator]) do |f| %>
-  <% if @admin_legislator.errors.any? %>
+<%= form_for([:admin, @legislator]) do |f| %>
+  <% if @legislator.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_legislator.errors.count, "error") %> prohibited this admin_legislator from being saved:</h2>
+      <h2><%= pluralize(@legislator.errors.count, "error") %> prohibited this legislator from being saved:</h2>
 
       <ul>
-      <% @admin_legislator.errors.full_messages.each do |message| %>
+      <% @legislator.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
