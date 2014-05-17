@@ -11,23 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.select :category_id, Category.all.collect { |c| [ c.name, c.id] }, include_blank: false, prompt: "請選類別" %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+
+
+  <table width="100%" class="table-edit">
+    <tr>
+      <th width="20%">建檔日期</th>
+      <td width="80%"><%= @entry.try(:created_at).try(:strftime, '%Y-%m-%d %H:%M:%S') %></td>
+    </tr>
+    <tr>
+      <th>立委姓名</th>
+      <td><select name="select" id="select">
+      </select></td>
+    </tr>
+    <tr>
+      <th width="20%">新聞標題</th>
+      <td><%= f.text_field :title , :id => 'textfield' , :class => 'long-input' %></td>
+    </tr>
+    <tr>
+      <th>新聞分類</th>
+      <td><%= f.select :category_id, Category.all.collect { |c| [ c.name, c.id] }, include_blank: false, prompt: "請選類別" %></td>
+    </tr>
+    <tr>
+      <th>原始來源連結</th>
+      <td><%= f.text_field :url , :id => 'textfield2' , :class => 'long-input' %></td>
+    </tr>
+    <tr>
+      <th>內容文字</th>
+      <td><%= f.text_area :description , :id => 'textfield3' , :class => 'long-input' %></td>
+    </tr>
+  </table>
+  <p class="table-btn">
+    <input type="reset" name="button2" id="button2" value="取消">
+    <%= f.submit "確認儲存", :class => "btn-here" %>
+  </p>
 <% end %>
