@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>新增新聞</title>
+    <%= stylesheet_link_tag 'style.css', media: 'all' %>
+  </head>
+
+  <body>
+    <div id="admin_block">
+      <ul id="funcion-bar">
+        <li><%= link_to "立委影片管理", admin_videos_path %></li>
+        <li><%= link_to "新增影片", new_admin_video_path %></li>
+        <li><%= link_to "立委新聞管理", admin_entries_path %></li>
+        <li><%= link_to "新增新聞", new_admin_entry_path %></li>
+        <li><a href="#">登出</a></li>
+      </ul>
+      <div id="function-content">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-class Admin::LegislatorsController < ApplicationController
+class Admin::LegislatorsController < Admin::BaseController
   before_action :set_legislator, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/legislators

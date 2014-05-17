@@ -1,4 +1,4 @@
-class Admin::EntriesController < ApplicationController
+class Admin::EntriesController < Admin::BaseController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/entries

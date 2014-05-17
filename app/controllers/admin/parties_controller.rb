@@ -1,4 +1,4 @@
-class Admin::PartiesController < ApplicationController
+class Admin::PartiesController < Admin::BaseController
   before_action :set_party, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/parties
