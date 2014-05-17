@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>國會調查兵團平台管理後台</title>
+    <%= stylesheet_link_tag 'admin.css', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div id="admin_block">
+        <%= yield %>
+    </div>
+  </body>
+</html>
