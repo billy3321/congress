@@ -1,10 +1,10 @@
 class Admin::PartiesController < ApplicationController
-  before_action :set_admin_party, only: [:show, :edit, :update, :destroy]
+  before_action :set_party, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/parties
   # GET /admin/parties.json
   def index
-    @admin_parties = Party.all
+    @parties = Party.all
   end
 
   # GET /admin/parties/1
@@ -14,7 +14,7 @@ class Admin::PartiesController < ApplicationController
 
   # GET /admin/parties/new
   def new
-    @admin_party = Party.new
+    @party = Party.new
   end
 
   # GET /admin/parties/1/edit
@@ -24,15 +24,15 @@ class Admin::PartiesController < ApplicationController
   # POST /admin/parties
   # POST /admin/parties.json
   def create
-    @admin_party = Party.new(admin_party_params)
+    @party = Party.new(party_params)
 
     respond_to do |format|
-      if @admin_party.save
-        format.html { redirect_to [:admin, @admin_party], notice: 'Party was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_party }
+      if @party.save
+        format.html { redirect_to [:admin, @party], notice: 'Party was successfully created.' }
+        format.json { render :show, status: :created, location: @party }
       else
         format.html { render :new }
-        format.json { render json: @admin_party.errors, status: :unprocessable_entity }
+        format.json { render json: @party.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class Admin::PartiesController < ApplicationController
   # PATCH/PUT /admin/parties/1.json
   def update
     respond_to do |format|
-      if @admin_party.update(admin_party_params)
-        format.html { redirect_to [:admin, @admin_party], notice: 'Party was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_party }
+      if @party.update(party_params)
+        format.html { redirect_to [:admin, @party], notice: 'Party was successfully updated.' }
+        format.json { render :show, status: :ok, location: @party }
       else
         format.html { render :edit }
-        format.json { render json: @admin_party.errors, status: :unprocessable_entity }
+        format.json { render json: @party.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +54,7 @@ class Admin::PartiesController < ApplicationController
   # DELETE /admin/parties/1
   # DELETE /admin/parties/1.json
   def destroy
-    @admin_party.destroy
+    @party.destroy
     respond_to do |format|
       format.html { redirect_to admin_parties_url, notice: 'Party was successfully destroyed.' }
       format.json { head :no_content }
@@ -63,12 +63,12 @@ class Admin::PartiesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_admin_party
-      @admin_party = Party.find(params[:id])
+    def set_party
+      @party = Party.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_party_params
+    def party_params
       params.require(:party).permit(:name, :image)
     end
 end

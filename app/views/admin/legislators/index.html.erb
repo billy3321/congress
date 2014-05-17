@@ -1,4 +1,4 @@
-<h1>Listing admin_legislators</h1>
+<h1>Listing legislators</h1>
 
 <table>
   <thead>
@@ -12,15 +12,15 @@
   </thead>
 
   <tbody>
-    <% @admin_legislators.each do |admin_legislator| %>
+    <% @legislators.each do |legislator| %>
       <tr>
-        <td><%= admin_legislator.name %></td>
-        <td><%= admin_legislator.party.name %></td>
-        <td><%= admin_legislator.description %></td>
-        <td><%= admin_legislator.constituency %></td>
-        <td><%= link_to 'Show', [:admin, admin_legislator] %></td>
-        <td><%= link_to 'Edit', edit_admin_legislator_path(admin_legislator) %></td>
-        <td><%= link_to 'Destroy', [:admin, admin_legislator], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= legislator.name %></td>
+        <td><%= legislator.party.name %></td>
+        <td><%= legislator.description %></td>
+        <td><%= legislator.constituency %></td>
+        <td><%= link_to 'Show', [:admin, legislator] %></td>
+        <td><%= link_to 'Edit', edit_admin_legislator_path(legislator) %></td>
+        <td><%= link_to 'Destroy', [:admin, legislator], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

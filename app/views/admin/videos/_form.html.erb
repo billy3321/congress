@@ -1,10 +1,10 @@
-<%= form_for([:admin, @admin_video]) do |f| %>
-  <% if @admin_video.errors.any? %>
+<%= form_for([:admin, @video]) do |f| %>
+  <% if @video.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_video.errors.count, "error") %> prohibited this admin_video from being saved:</h2>
+      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
       <ul>
-      <% @admin_video.errors.full_messages.each do |message| %>
+      <% @video.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

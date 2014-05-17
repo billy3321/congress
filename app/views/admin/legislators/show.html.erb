@@ -2,23 +2,23 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @admin_legislator.name %>
+  <%= @legislator.name %>
 </p>
 
 <p>
   <strong>Party:</strong>
-  <%= @admin_legislator.party_id %>
+  <%= @legislator.party_id %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @admin_legislator.description %>
+  <%= @legislator.description %>
 </p>
 
 <p>
   <strong>Constituency:</strong>
-  <%= @admin_legislator.constituency %>
+  <%= @legislator.constituency %>
 </p>
 
-<%= link_to 'Edit', edit_admin_legislator_path(@admin_legislator) %> |
+<%= link_to 'Edit', edit_admin_legislator_path(@legislator) %> |
 <%= link_to 'Back', admin_legislators_path %>

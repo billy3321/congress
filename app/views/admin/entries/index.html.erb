@@ -1,4 +1,4 @@
-<h1>Listing admin_entries</h1>
+<h1>Listing entries</h1>
 
 <table>
   <thead>
@@ -12,15 +12,15 @@
   </thead>
 
   <tbody>
-    <% @admin_entries.each do |admin_entry| %>
+    <% @entries.each do |entry| %>
       <tr>
-        <td><%= admin_entry.title %></td>
-        <td><%= admin_entry.category_id %></td>
-        <td><%= admin_entry.description %></td>
-        <td><%= admin_entry.url %></td>
-        <td><%= link_to 'Show', [:admin, admin_entry] %></td>
-        <td><%= link_to 'Edit', edit_admin_entry_path(admin_entry) %></td>
-        <td><%= link_to 'Destroy', [:admin, admin_entry], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= entry.title %></td>
+        <td><%= entry.category_id %></td>
+        <td><%= entry.description %></td>
+        <td><%= entry.url %></td>
+        <td><%= link_to 'Show', [:admin, entry] %></td>
+        <td><%= link_to 'Edit', edit_admin_entry_path(entry) %></td>
+        <td><%= link_to 'Destroy', [:admin, entry], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
