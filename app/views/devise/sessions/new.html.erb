@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>國會調查兵團平台管理後台</title>
+    <%= stylesheet_link_tag 'style.css', media: 'all' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <div id="login_box">
+      <h1>國會調查兵團平台管理後台</h1>
+      <p class="login_btn">
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= button_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+          <% end -%>
+        <% end -%>
+      </p>
+    </div>
+  </body>
+</html>
