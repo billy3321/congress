@@ -2,13 +2,40 @@
 <html>
 <head>
   <title>Congress</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+  <title>國會調查兵團-領養不棄養‧立委需要你</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'style.css', media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="all-wrap">
+	<div id="top-bar">
+    <div id="top-link">
+    <a href="index.html" id="logo"><em>國會調查兵團-領養不棄養‧立委需要你</em></a>
+    <nav>
+    	<ul id="top-nav">
+        	<li><a href="legislator.html" id="t01" title="找立委">找立委</a></li>
+            <li><a href="http://goo.gl/2gXSkw " id="t02" target="_blank" title="加入調查兵團">加入調查兵團</a></li>
+            <li><a href="https://www.facebook.com/pttcitizen1985" id="t03" target="_blank" title="1985粉絲團">1985粉絲團</a></li>
+        </ul>
+    </nav>
+    </div>
+    </div>
+    <div id="main-content">
+      <%= yield %>
+    </div>
+    <div id="footer">
+        <footer>
+        	<small>本網站授權協議為CC-BY-ND 4.0 TW，<span>由公民覺醒聯盟製作。</span></small>
+        </footer>
+    </div>
+</div>
 </body>
+
+
+
+
+
 </html>

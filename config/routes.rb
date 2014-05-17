@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+  get '/legislators', to: 'home#legislators'
+  get '/legislators/:id', to: 'home#show_legislator'
+  get '/videos/:id', to: 'home#show_video'
+  get '/entries/:id', to: 'home#show_entry'
+
+
+  root to: "home#index"
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :admin do
     resources :categories
