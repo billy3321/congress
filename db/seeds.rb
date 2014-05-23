@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Party.delete_all
+
+filepath = Rails.root.join('db', 'g0v-lyparser', 'party.json')
+parties = JSON.parse(File.read(filepath))
+parties.each do |p|
+  party = Party.new(p)
+  party.id = p['id']
+  party.save
+end
