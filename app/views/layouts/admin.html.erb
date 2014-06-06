@@ -9,6 +9,8 @@
     <script src="/froala/js/froala_editor.min.js"></script>
     <%= stylesheet_link_tag 'admin.css', media: 'all' %>
     <%= csrf_meta_tags %>
+    <%= javascript_tag "var AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery? %>
+
   </head>
 
   <body>

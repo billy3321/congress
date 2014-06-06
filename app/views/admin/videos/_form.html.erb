@@ -45,6 +45,10 @@
 <% end %>
 <script>
   $(function() {
-    $('#textfield3').editable({inlineMode: false, alwaysBlank: true})
+    $('#textfield3').editable({
+      inlineMode: false, 
+      alwaysBlank: true, 
+      imageUploadURL: '/admin/upload', 
+      imageUploadParams: {authenticity_token: AUTH_TOKEN}})
   });
 </script>

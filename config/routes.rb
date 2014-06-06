@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :admin do
+    post '/upload', to: 'base#upload'
     resources :categories
     resources :entries
     resources :legislators
