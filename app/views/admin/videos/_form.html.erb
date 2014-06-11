@@ -18,8 +18,7 @@
     </tr>
     <tr>
       <th>立委姓名</th>
-      <td><select name="select" id="select">
-      </select></td>
+      <td><%= f.select :legislator_ids, Legislator.all.collect { |l| [ l.name, l.id ] }, {}, {:multiple => true, :class => 'long-input'} %></td>
     </tr>
     <tr>
       <th width="20%">影片標題</th>
@@ -49,6 +48,7 @@
       inlineMode: false, 
       alwaysBlank: true, 
       imageUploadURL: '/admin/upload', 
-      imageUploadParams: {authenticity_token: AUTH_TOKEN}})
+      imageUploadParams: {authenticity_token: AUTH_TOKEN}});
+    $('#video_legislator_ids').chosen({'search_contains': true});
   });
 </script>

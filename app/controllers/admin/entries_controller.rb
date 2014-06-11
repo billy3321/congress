@@ -69,6 +69,6 @@ class Admin::EntriesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:title, :category_id, :description, :url)
+      params.require(:entry).permit(:title, {:legislator_ids => []}, :category_id, :description, :url)
     end
 end
