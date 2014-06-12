@@ -6,7 +6,7 @@ class Video < ActiveRecord::Base
       youtube_id = extract_youtube_id(video.url)
       #"https://www.youtube.com/watch?v=oeRo-ydS0UE"
       #"http://youtu.be/oeRo-ydS0UE"
-      video.url = "https://www.youtube.com/?v=" + youtube_id
+      video.url = "https://www.youtube.com/watch?v=" + youtube_id
       response = HTTPClient.get('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + youtube_id + '&key=' + API_CONFIG['google_public_key']['api_key'])
       result = JSON.parse(response.body)
       video.image = result['items'][0]['snippet']['thumbnails']['standard']['url']
