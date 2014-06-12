@@ -75,7 +75,7 @@ legislators.each do |l|
   legislator.id = l['id']
   legislator.party_id = Party.where(abbreviation: l['party']).first.id
   legislator.name = l['name']
-  legislator.image = l['avatar']
+  legislator.image = '/legislators/160x214/' + l['id'].to_s + '.jpg'
   legislator.constituency = constituency_parser(l['constituency'])
   legislator.save
 end
