@@ -1,7 +1,6 @@
 <article>
   <div id="single-info">
     <%= image_tag @legislator.image, {:alt => @legislator.name, :class => 'single-img'} %>
-    <img src="images/test-pic-03.jpg" alt="立委姓名" class="single-img">
     <header>
       <h1>
         <%= @legislator.name %>
@@ -25,6 +24,9 @@
       影片數：<%= @legislator.videos.count %>
     </p>
   </div>
+  <h3 class="title-03">
+    其他影片
+  </h3>
   <ul id="single-video-list">
     <% @legislator.videos.each do |v| %>
       <li>
@@ -47,9 +49,9 @@
     <ul id="other-link-list">
       <% @legislator.entries.each do |e| %>
       <li>
-        <% if e.category.name == '兵團評論' %>
+        <% if e.category.try(:name) == '兵團評論' %>
           <div class="news-tag our-comment">
-        <% elsif e.category.name == '媒體新聞' %>
+        <% elsif e.category.try(:name) == '媒體新聞' %>
           <div class="news-tag news-media">
         <% else %>
           <div class="news-tag">

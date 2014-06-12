@@ -14,8 +14,10 @@ class HomeController < ApplicationController
   end
 
   def show_video
+    @video = Video.find(params[:id])
   end
 
   def show_entry
+    @entry = Entry.find(params[:id])
   end
 end

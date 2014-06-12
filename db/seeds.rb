@@ -79,3 +79,16 @@ legislators.each do |l|
   legislator.constituency = constituency_parser(l['constituency'])
   legislator.save
 end
+
+categories = [{:id => 1, :name => '媒體新聞'}, {:id => 2, :name => '兵團評論'}]
+
+Category.delete_all
+categories.each do |c|
+  category = Category.new()
+  category.id = c.id
+  category.name = c.name
+  category.save
+end
+
+
+
