@@ -2,8 +2,8 @@
   <h1 class="title-02">國會調查兵團-立委清單</h1>
    	<nav>
       <ul id="sub-nav-tag">
-        <li class="current"><a href="#">已有影片資料</a></li>
-        <li><a href="#">尚無影片資料</a></li>
+        <li class="has_video_button"><a href="#">已有影片資料</a></li>
+        <li class="no_video_button"><a href="#">尚無影片資料</a></li>
       </ul>
     </nav>
     <ul id="people-list">
@@ -26,3 +26,20 @@
     <% end %>
   </ul>
 </article>
+<script>
+  $(function() {
+    $('.has_video_button').click(function(){
+      $('.has_video').show();
+      $('.no_video').hide();
+      $('.has_video_button').addClass('current');
+      $('.no_video_button').removeClass('current');
+    });
+    $('.no_video_button').click(function(){
+      $('.no_video').show();
+      $('.has_video').hide();
+      $('.no_video_button').addClass('current');
+      $('.has_video_button').removeClass('current');
+    });
+    $('.has_video_button').click();
+  });
+</script>
