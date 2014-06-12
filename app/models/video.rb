@@ -9,12 +9,12 @@ class Video < ActiveRecord::Base
       video.url = "https://www.youtube.com/?v=" + youtube_id
       response = HTTPClient.get('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + youtube_id + '&key=' + API_CONFIG['google_public_key']['api_key'])
       result = JSON.parse(response.body)
-      video.image = result['items'][0]['snippet']['thumbnails']['maxres']['url']
+      video.image = result['items'][0]['snippet']['thumbnails']['standard']['url']
       if video.title.blank?
         video.title = result['items'][0]['snippet']['title']
       end
       if video.description.blank?
-        video.description = result['items'][0]['snippet']['description']
+        video.description = result['items'][0]['snippet']['description'].gsub(/[\n]/,"<br />")
       end
     # rescue => err
     #   puts ">>>>>>", err.inspect
