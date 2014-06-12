@@ -23,6 +23,7 @@ class Admin::BaseController < ApplicationController
   def require_admin
     unless current_user.admin?
       sign_out current_user
+      redirect_to '/users/sign_in'
     end
   end
 
