@@ -23,7 +23,7 @@
   <% end %>
   <div id="single-video-show">
     <section>
-      <iframe src="<%= @video.url %>" frameborder="0" allowfullscreen class="video-play">
+      <iframe src="<%= "http://www.youtube.com/embed/" + @video.url[32..-1] %>" frameborder="0" allowfullscreen class="video-play">
       </iframe>
       <div id="video-txt-block">
         <header>

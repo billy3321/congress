@@ -26,7 +26,11 @@ class Video < ActiveRecord::Base
     youtube_uri = URI.parse(url)
     if youtube_uri.host == 'www.youtube.com'
       params = youtube_uri.query
-      youtube_id = CGI::parse(params)['v'].first
+      if params
+        youtube_id = CGI::parse(params)['v'].first
+      else
+        youtube_id = youtube_uri.path.split('/')[-1]
+      end
     elsif youtube_uri.host == 'youtu.be'
       youtube_id = youtube_uri.path[1..-1]
     else
