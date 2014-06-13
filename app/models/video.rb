@@ -7,9 +7,23 @@ class Video < ActiveRecord::Base
       #"https://www.youtube.com/watch?v=oeRo-ydS0UE"
       #"http://youtu.be/oeRo-ydS0UE"
       video.url = "https://www.youtube.com/watch?v=" + youtube_id
-      response = HTTPClient.get('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + youtube_id + '&key=' + API_CONFIG['google_public_key']['api_key'])
+      api_url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + youtube_id + '&key=' + API_CONFIG['google_public_key']['api_key']
+      response = HTTPClient.get(api_url)
       result = JSON.parse(response.body)
-      video.image = result['items'][0]['snippet']['thumbnails']['standard']['url']
+      if result['items'][0]['snippet']['thumbnails'].key?('maxres')
+        video.image = result['items'][0]['snippet']['thumbnails']['maxres']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('standard')
+        video.image = result['items'][0]['snippet']['thumbnails']['standard']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('high')
+        video.image = result['items'][0]['snippet']['thumbnails']['high']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('medium')
+        video.image = result['items'][0]['snippet']['thumbnails']['medium']['url']
+      elsif result['items'][0]['snippet']['thumbnails'].key?('default')
+        video.image = result['items'][0]['snippet']['thumbnails']['default']['url']
+      else
+        video.image = ''
+      end
+
       if video.title.blank?
         video.title = result['items'][0]['snippet']['title']
       end
