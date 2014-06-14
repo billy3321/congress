@@ -4,7 +4,7 @@
     <div id="single-info" class="s2">
       <%= image_tag l.image, {:alt => l.name, :class => "single-img-2"} %>
       <header>
-        <%= link_to "<h1>#{l.name}</h1>".html_safe, "legislators/#{l.id}", {:title => l.name} %>
+        <%= link_to "<h1>#{l.name}</h1>".html_safe, "/legislators/#{l.id}", {:title => l.name} %>
       </header>
       <p class="party-<%= l.party.abbreviation? ? l.party.abbreviation.to_s.downcase : 'null' %> party-tag">
         <%= l.party.name %>
@@ -81,7 +81,7 @@
       <nav>
         <ul class="more-link">
           <li>
-            <%= link_to '更多影片', "legislators/#{@entry.legislators.first.id}" %>
+            <%= link_to '更多影片', "/legislators/#{@entry.legislators.first.id}" %>
           </li>
           <li>
             <a href="/legislators">
@@ -101,7 +101,7 @@
                 <time datetime="<%= v.created_at.strftime('%Y-%m-%d') %>"><%= v.created_at.strftime('%Y-%m-%d') %></time>
               </p>
               <header>
-                <%= link_to "<h3>#{v.title}</h3>".html_safe, "videos/#{v.id}", {:title => v.title} %>
+                <%= link_to "<h3>#{v.title}</h3>".html_safe, "/videos/#{v.id}", {:title => v.title} %>
               </header>
             </section>
           </li>

@@ -16,9 +16,9 @@
           <li class='no_data'>
         <% end %>
         <section>
-          <%= link_to image_tag(l.image, {:alt => l.name}), "legislators/#{l.id}", {:title => l.name} %>
+          <%= link_to image_tag(l.image, {:alt => l.name}), "/legislators/#{l.id}", {:title => l.name} %>
           <header>
-            <%= link_to "<h2>#{l.name}</h2>".html_safe, "legislators/#{l.id}", {:title => l.name} %>
+            <%= link_to "<h2>#{l.name}</h2>".html_safe, "/legislators/#{l.id}", {:title => l.name} %>
           </header>
           <p><%= l.constituency %></p>
           <p>影片數：<%= l.videos.count %></p>

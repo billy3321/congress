@@ -4,7 +4,7 @@
     <div id="single-info" class="s2">
       <%= image_tag l.image, {:alt => l.name, :class => "single-img-2"} %>
       <header>
-        <%= link_to "<h1>#{l.name}</h1>".html_safe, "legislators/#{l.id}", {:title => l.name} %>
+        <%= link_to "<h1>#{l.name}</h1>".html_safe, "/legislators/#{l.id}", {:title => l.name} %>
       </header>
       <p class="party-<%= l.party.abbreviation? ? l.party.abbreviation.to_s.downcase : 'null' %> party-tag">
         <%= l.party.name %>
