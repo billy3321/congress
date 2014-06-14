@@ -7,7 +7,7 @@
         <%= @legislator.name %>
       </h1>
     </header>
-    <p class="party-<%= @legislator.party.abbreviation.to_s.downcase %> party-tag">
+    <p class="party-<%= l.party.abbreviation? ? l.party.abbreviation.to_s.downcase : 'null' %> party-tag">
       <%= @legislator.party.name %>
     </p>
     <p class="single-no">
