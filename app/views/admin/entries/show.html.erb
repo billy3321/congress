@@ -12,7 +12,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @entry.description.html_safe %>
+  <%= @entry.description.try(:html_safe) %>
 </p>
 
 <p>

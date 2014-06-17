@@ -7,7 +7,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @video.description.html_safe %>
+  <%= @video.description.try(:html_safe) %>
 </p>
 
 <p>

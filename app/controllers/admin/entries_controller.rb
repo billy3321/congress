@@ -4,7 +4,7 @@ class Admin::EntriesController < Admin::BaseController
   # GET /admin/entries
   # GET /admin/entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.order(created_at: :desc)
   end
 
   # GET /admin/entries/1

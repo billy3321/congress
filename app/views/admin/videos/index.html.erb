@@ -18,7 +18,7 @@
         <td><%= video.title %><br>
         <%= video.url %></td>
         <td class="center"><%= video.created_at.strftime('%Y-%m-%d') %></td>
-        <td><%= video.description.html_safe %></td>
+        <td><%= video.description.try(:html_safe) %></td>
         <td><%= link_to 'Show', [:admin, video] %><br>
         <%= link_to 'Edit', edit_admin_video_path(video) %><br>
         <%= link_to 'Destroy', [:admin, video], method: :delete, data: { confirm: '確定刪除嗎？' } %></td>

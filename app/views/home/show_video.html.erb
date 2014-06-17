@@ -36,7 +36,7 @@
         <time datetime="<%= @video.created_at.strftime('%Y-%m-%d') %>"><%= @video.created_at.strftime('%Y-%m-%d') %></time>
         </p>
         <div class="video-txt">
-          <%= @video.description.html_safe %>
+          <%= @video.description.try(:html_safe) %>
         </div>
       </div>
     </section>

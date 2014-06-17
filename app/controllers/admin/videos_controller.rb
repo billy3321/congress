@@ -4,7 +4,7 @@ class Admin::VideosController < Admin::BaseController
   # GET /admin/videos
   # GET /admin/videos.json
   def index
-    @videos = Video.all
+    @videos = Video.order(created_at: :desc)
   end
 
   # GET /admin/videos/1

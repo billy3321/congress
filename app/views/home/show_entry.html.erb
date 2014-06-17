@@ -43,7 +43,7 @@
           <time datetime="<%= @entry.created_at.strftime('%Y-%m-%d') %>"><%= @entry.created_at.strftime('%Y-%m-%d') %></time>
         </p>
         <div class="news-txt">
-          <%= @entry.description.html_safe %>
+          <%= @entry.description.try(:html_safe) %>
         </div>
         <div class="news-original-link">
           原始來源連結：
