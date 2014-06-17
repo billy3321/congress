@@ -6,7 +6,7 @@
     <div id="main-video">
         <section>
             <% if @main_video %>
-                <%= link_to image_tag(@main_video.image, {:alt => @main_video.title}), "/videos/#{@main_video.id}", {:title => @main_video.title} %>
+                <%= link_to image_tag(@main_video.image, {:alt => @main_video.title}), "/videos/#{@main_video.id}", {:title => @main_video.title, :class => 'img_url_l'} %>
                 <header>
                     <%= link_to "<h2>#{@main_video.title}</h2>".html_safe, "/videos/#{@main_video.id}", {:title => @main_video.title} %>
                 </header>
@@ -21,7 +21,7 @@
         <% @sub_videos.each do |v| %>
             <div class="s-video">
                 <section>
-                    <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title} %>
+                    <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title, :class => 'img_url_s'} %>
                     <header>
                         <%= link_to "<h2>#{v.legislators.first.name}</h2>".html_safe, "/videos/#{v.id}", {:title => v.title} %>
                         </a>

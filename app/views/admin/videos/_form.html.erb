@@ -14,7 +14,7 @@
   <table width="100%" class="table-edit">
     <tr>
       <th width="20%">建檔日期</th>
-      <td width="80%">2010-10-10 24:59:59</td>
+      <td width="80%"><%= @video.try(:created_at).try(:strftime, '%Y-%m-%d %H:%M:%S') %></td>
     </tr>
     <tr>
       <th>立委姓名</th>

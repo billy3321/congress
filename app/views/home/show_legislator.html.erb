@@ -32,7 +32,7 @@
     <% @legislator.videos.each do |v| %>
       <li>
         <section>
-          <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title} %>
+          <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title, :class => 'img_url_s'} %>
           <p class="time">
             <time datetime="<%= v.created_at.strftime('%Y-%m-%d') %>"><%= v.created_at.strftime('%Y-%m-%d') %></time>
           </p>
