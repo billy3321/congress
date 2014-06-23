@@ -1,4 +1,10 @@
 <% provide(:title, @video.title) %>
+<meta name="keywords" content="
+  <% @video.legislators.each do |l| %>
+    <%= l.name -%>,
+  <% end %>
+國會調查兵團,1985行動聯盟" />
+<meta name="description" content="<%= @video.title %> - <%= @video.description %>" />
 <article>
   <% @video.legislators.each do |l| %>
     <div id="single-info" class="s2">
@@ -14,7 +20,7 @@
           第8屆立法委員
         </em>
         <span class="vote-group">
-          <%= l.party.name %> / <%= l.constituency %>）
+          （<%= l.party.name %> / <%= l.constituency %>）
         </span>
       </p>
       <p class="video-count">

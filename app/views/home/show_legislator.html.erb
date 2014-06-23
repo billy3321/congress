@@ -1,4 +1,15 @@
 <% provide(:title, @legislator.name) %>
+<meta name="keywords" content="<%= @legislator.name %>,<%= @legislator.party.name %>,<%= @legislator.constituency %>" />
+<% if @legislator.videos.any? %>
+  <meta name="description" content="
+    <% @legislator.videos.first(3).each do |v| %>
+      <%= v.title %>,
+    <% end %>
+  " />
+<% else %>
+  <meta name="description" content="<%= @legislator.name %>,<%= @legislator.party.name %>,<%= @legislator.constituency %>" />
+<% end %>
+
 <article>
   <div id="single-info">
     <%= image_tag @legislator.image, {:alt => @legislator.name, :class => 'single-img'} %>
