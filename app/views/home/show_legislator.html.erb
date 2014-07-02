@@ -40,7 +40,7 @@
     其他影片
   </h3>
   <ul id="single-video-list">
-    <% @legislator.videos.each do |v| %>
+    <% @legislator.videos.order(created_at: :desc).to_a.each do |v| %>
       <li>
         <section>
           <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title, :class => 'img_url_s'} %>
@@ -59,7 +59,7 @@
       相關連結
     </h3>
     <ul id="other-link-list">
-      <% @legislator.entries.each do |e| %>
+      <% @legislator.entries.order(created_at: :desc).to_a.each do |e| %>
       <li>
         <% if e.category.try(:name) == '兵團評論' %>
           <div class="news-tag our-comment">

@@ -63,7 +63,7 @@
       相關連結
     </h3>
     <ul id="other-link-list">
-      <% @entry.legislators.first.entries.each do |e| %>
+      <% @entry.legislators.first.entries.order(created_at: :desc).to_a.each do |e| %>
         <li>
           <% if e.category.try(:name) == '兵團評論' %>
             <div class="news-tag our-comment">
@@ -99,7 +99,7 @@
     </div>
     <aside>
       <ul id="other-video-list">
-        <% @entry.legislators.first.videos.each do |v| %>
+        <% @entry.legislators.first.videos.order(created_at: :desc).to_a.each do |v| %>
           <li>
             <section>
               <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title, :class => 'img_url_s'} %>
