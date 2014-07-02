@@ -13,7 +13,7 @@
   <% end -%>
 <% end -%>
 國會調查兵團" />
-<meta name="description" content="<%= @main_video.title %> - <%= @main_video.description %>" />
+<meta name="description" content="<%= @main_video.title %> - <%= Sanitize.fragment(@main_video.description) %>" />
 <article>
     <header>
         <h1 class="title-01">國會調查兵團最新調查報告</h1>

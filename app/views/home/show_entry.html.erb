@@ -4,7 +4,7 @@
     <%= l.name -%>,<%= l.party.name -%>,<%= l.constituency -%>,
   <% end %>
 國會調查兵團,1985行動聯盟" />
-<meta name="description" content="<%= @entry.title %> - <%= @entry.description.first(70) %>" />
+<meta name="description" content="<%= @entry.title %> - <%= Sanitize.fragment(@entry.description).first(70) %>" />
 <article>
   <% @entry.legislators.each do |l| %>
     <div id="single-info" class="s2">

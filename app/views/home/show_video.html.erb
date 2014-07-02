@@ -4,7 +4,7 @@
     <%= l.name -%>,
   <% end %>
 國會調查兵團,1985行動聯盟" />
-<meta name="description" content="<%= @video.title %> - <%= @video.description %>" />
+<meta name="description" content="<%= @video.title %> - <%= Sanitize.fragment(@video.description) %>" />
 <article>
   <% @video.legislators.each do |l| %>
     <div id="single-info" class="s2">
@@ -75,7 +75,7 @@
                 <time datetime="<%= v.created_at.strftime('%Y-%m-%d') %>"><%= v.created_at.strftime('%Y-%m-%d') %></time>
               </p>
               <header>
-                <%= link_to "<h3>#{v.title}</h3>".html_safe, "videos/#{v.id}", {:title => v.title} %>
+                <%= link_to "<h3>#{v.title}</h3>".html_safe, "/videos/#{v.id}", {:title => v.title} %>
               </header>
             </section>
           </li>
