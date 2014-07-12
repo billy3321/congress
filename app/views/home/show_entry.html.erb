@@ -1,10 +1,8 @@
 <% provide(:title, @entry.title) %>
-<meta name="keywords" content="
-  <% @entry.legislators.each do |l| %>
-    <%= l.name -%>,<%= l.party.name -%>,<%= l.constituency -%>,
-  <% end %>
-國會調查兵團,1985行動聯盟" />
-<meta name="description" content="<%= @entry.title %> - <%= Sanitize.fragment(@entry.description).first(70) %>" />
+<% keywords = @entry.legislators.map(&:name) + @entry.legislators.map(&:party).map(&:name) + @entry.legislators.map(&:constituency) %>
+<% provide(:meta_keywords, keywords.uniq.join(',')) %>
+<% provide(:meta_description, "#{@entry.title} - #{Sanitize.fragment(@entry.description).first(70)}" ) %>
+
 <article>
   <% @entry.legislators.each do |l| %>
     <div id="single-info" class="s2">
@@ -99,7 +97,7 @@
     </div>
     <aside>
       <ul id="other-video-list">
-        <% @entry.legislators.first.videos.order(created_at: :desc).to_a.each do |v| %>
+        <% @entry.legislators.first.videos.order(created_at: :desc).to_a.first(3).each do |v| %>
           <li>
             <section>
               <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title, :class => 'img_url_s'} %>

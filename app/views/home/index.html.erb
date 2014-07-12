@@ -1,19 +1,8 @@
 <% provide(:title, '首頁') %>
-<meta name="keywords" content="1985行動聯盟,
-<% if @sub_videos.any? %>
-  <% @main_video.legislators.each do |l| -%>
-    <%= l.name %>,
-  <% end -%>
-<% end -%>
-<% if @sub_videos.any? %>
-  <% @sub_videos.each do |v| -%>
-    <% v.legislators.each do |l| -%>
-      <%= l.name %>,
-    <% end -%>
-  <% end -%>
-<% end -%>
-國會調查兵團" />
-<meta name="description" content="<%= @main_video.title %> - <%= Sanitize.fragment(@main_video.description) %>" />
+<% provide(:meta_description, "#{@main_video.title} - #{Sanitize.fragment(@main_video.description)}" ) %>
+<% keywords = @main_video.legislators.map(&:name) + @sub_videos.map(&:legislators).flatten.map(&:name) %>
+<% provide(:meta_keywords, keywords.uniq.join(',')) %>
+
 <article>
     <header>
         <h1 class="title-01">國會調查兵團最新調查報告</h1>

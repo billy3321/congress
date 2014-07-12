@@ -1,13 +1,9 @@
 <% provide(:title, @legislator.name) %>
-<meta name="keywords" content="<%= @legislator.name %>,<%= @legislator.party.name %>,<%= @legislator.constituency %>" />
+<% provide(:meta_keywords, "#{@legislator.name},#{@legislator.party.name},#{@legislator.constituency}") %>
 <% if @legislator.videos.any? %>
-  <meta name="description" content="
-    <% @legislator.videos.first(3).each do |v| %>
-      <%= v.title %>,
-    <% end %>
-  " />
+  <% provide(:meta_description, @legislator.videos.first(3).map(&:title).join(',')) %>
 <% else %>
-  <meta name="description" content="<%= @legislator.name %>,<%= @legislator.party.name %>,<%= @legislator.constituency %>" />
+  <% provide(:meta_description, "#{@legislator.name},#{@legislator.party.name},#{@legislator.constituency}") %>
 <% end %>
 
 <article>

@@ -1,5 +1,7 @@
 class Video < ActiveRecord::Base
   has_and_belongs_to_many :legislators
+  validates_presence_of :url
+  validate :has_at_least_one_legislator
 
   before_save do |video|
     begin
@@ -50,5 +52,11 @@ class Video < ActiveRecord::Base
     else
       raise 'youtube id not found'
     end
+  end
+
+  private
+
+  def has_at_least_one_legislator
+    errors.add(:base, 'must add at least one legislator') if self.legislators.blank?
   end
 end

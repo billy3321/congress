@@ -1,10 +1,7 @@
 <% provide(:title, @video.title) %>
-<meta name="keywords" content="
-  <% @video.legislators.each do |l| %>
-    <%= l.name -%>,
-  <% end %>
-國會調查兵團,1985行動聯盟" />
-<meta name="description" content="<%= @video.title %> - <%= Sanitize.fragment(@video.description) %>" />
+<% provide(:meta_description, "#{@video.title} - #{Sanitize.fragment(@video.description).first(70)}" ) %>
+<% provide(:meta_keywords, @video.legislators.map(&:name).join(',')) %>
+
 <article>
   <% @video.legislators.each do |l| %>
     <div id="single-info" class="s2">
