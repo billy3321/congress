@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= yield(:title) %>-國會調查兵團</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag 'style.css', media: 'all' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href="/images/logo.png" rel="image_src" type="image/jpeg">
-  <meta name="title" content="<%= yield(:title) %>-國會調查兵團" />
-  <meta name="keywords" content="<%= yield(:meta_keywords) %>" />
-  <meta name="description" content="<%= yield(:meta_description) %>" />
-</head>
-<body>
-<div id="all-wrap">
-	<div id="top-bar">
-    <div id="top-link">
-    <a href="/" id="logo"><em>國會調查兵團-領養不棄養‧立委需要你</em></a>
-    <nav>
-    	<ul id="top-nav">
-        	<li><a href="/legislators" id="t01" title="找立委">找立委</a></li>
-            <li><a href="http://goo.gl/2gXSkw " id="t02" target="_blank" title="加入調查兵團">加入調查兵團</a></li>
-            <li><a href="https://www.facebook.com/pttcitizen1985" id="t03" target="_blank" title="1985粉絲團">1985粉絲團</a></li>
-        </ul>
-    </nav>
-    </div>
-    </div>
-    <div id="main-content">
-      <%= yield %>
-    </div>
-    <div id="footer">
+  <head>
+    <title><%= yield(:title) %>-國會調查兵團</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'style.css', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href="/images/logo.png" rel="image_src" type="image/jpeg">
+    <meta name="title" content="<%= yield(:title) %>-國會調查兵團" />
+    <meta name="keywords" content="<%= yield(:meta_keywords) %>" />
+    <meta name="description" content="<%= yield(:meta_description) %>" />
+  </head>
+  <body>
+    <div id="all-wrap">
+    	<div id="top-bar">
+        <div id="top-link">
+          <a href="/" id="logo"><em>國會調查兵團-領養不棄養‧立委需要你</em></a>
+          <nav>
+          	<ul id="top-nav">
+              <li><a href="/legislators" id="t01" title="找立委">找立委</a></li>
+              <li><a href="http://goo.gl/2gXSkw " id="t02" target="_blank" title="加入調查兵團">加入調查兵團</a></li>
+              <li><a href="https://www.facebook.com/pttcitizen1985" id="t03" target="_blank" title="1985粉絲團">1985粉絲團</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div id="main-content">
+        <%= yield %>
+      </div>
+      <div id="footer">
         <footer>
-        	<small>本網站授權協議為CC-BY-ND 3.0 TW，<span>由公民覺醒聯盟製作。</span></small>
+          <small>本網站授權協議為CC-BY-ND 3.0 TW，<span>由公民覺醒聯盟製作。</span></small>
         </footer>
+      </div>
     </div>
-</div>
-</body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-51908926-2', '1985.org.tw');
-  ga('send', 'pageview');
-
-</script>
-
-
-
-
-
+    ga('create', 'UA-51908926-2', '1985.org.tw');
+    ga('send', 'pageview');
+  </script>
 </html>
