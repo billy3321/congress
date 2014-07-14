@@ -2,6 +2,7 @@ class Video < ActiveRecord::Base
   has_and_belongs_to_many :legislators
   validates_presence_of :url
   validate :has_at_least_one_legislator
+  validate :is_youtube_url
 
   before_save do |video|
     begin
@@ -55,6 +56,11 @@ class Video < ActiveRecord::Base
   end
 
   private
+
+  def is_youtube_url
+    youtube_uri = URI.parse(self.url)
+    errors.add(:base, 'is not youtube url') unless ['www.youtube.com', 'youtu.be'].include?(youtube_uri.try(:host)
+  end
 
   def has_at_least_one_legislator
     errors.add(:base, 'must add at least one legislator') if self.legislators.blank?
