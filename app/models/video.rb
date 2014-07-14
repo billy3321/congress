@@ -59,7 +59,7 @@ class Video < ActiveRecord::Base
 
   def is_youtube_url
     youtube_uri = URI.parse(self.url)
-    errors.add(:base, 'is not youtube url') unless ['www.youtube.com', 'youtu.be'].include?(youtube_uri.try(:host)
+    errors.add(:base, 'is not youtube url') unless ['www.youtube.com', 'youtu.be'].include?(youtube_uri.try(:host))
   end
 
   def has_at_least_one_legislator
