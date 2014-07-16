@@ -64,7 +64,7 @@
     </div>
     <aside>
       <ul id="other-video-list">
-        <% @video.legislators.first.videos.order(created_at: :desc).to_a.each do |v| %>
+        <% @video.legislators.first.videos.order(created_at: :desc).to_a.first(3).each do |v| %>
          <li>
             <section>
               <%= link_to image_tag(v.image, {:alt => v.title}), "/videos/#{v.id}", {:title => v.title, :class => 'img_url_s'} %>
